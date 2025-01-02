@@ -25,27 +25,55 @@ class Player():
     def Add_Item(self,newitem):
         self.inventory.append(newitem)
 
-    def Assign_Stats(self,newstat): # This system uses the player's accumulated EXP in order to increase a specified stat.
+    def Assign_Stats(self,newstat): #This function uses the player's accumulated EXP in order to increase a specified stat.
         if newstat.lower() == "ap" and self.Exp > 10:
             self.Exp -= 10
             self.AP += 5
             self.MaxHP += 10
             self.HP = self.MaxHP
             self.level += 1
-            print(Fore.CYAN + '~~Level Up~~',f"\nAP Increased by 5, now at {self.AP}\nHP increased by 10, now at {self.MaxHP}\n~~10 EXP has been consumed~~")
+
             TypingPrint(Cyan)
             TypingPrint("~~Level Up~~\n")
             TypingPrint(Red)
-            TypingPrint("AP")
+            TypingPrint("AP ")
             TypingPrint(Reset)
+            TypingPrint("Increased by 5, now at ")
+            TypingPrint(Red)
+            TypingPrint(f"{self.AP}\n")
+            TypingPrint(Green)
+            TypingPrint("HP ")
+            TypingPrint(Reset)
+            TypingPrint("Increased by 10, now at ")
+            TypingPrint(Green)
+            TypingPrint(f"{self.MaxHP}\n")
+            TypingPrint(Yellow)
+            TypingPrint("~~10 EXP has been consumed~~")
         
         elif newstat.lower() == "paranoia" and self.Exp > 10:
             self.Exp -= 10
             self.MaxParanoia += 2
+            self.Paranoia = self.MaxParanoia
             self.MaxHP += 10
             self.HP = self.MaxHP
             self.level += 1
-            print(Fore.CYAN + '~~Level Up~~',f"\nMaximum Paranoia Increased by 2, now at {self.MaxParanoia}\nHP increased by 10, now at {self.MaxHP}\n~~10 EXP has been consumed~~")
+
+            TypingPrint(Cyan)
+            TypingPrint("~~Level Up~~\n")
+            TypingPrint(Magenta)
+            TypingPrint("Maximum Paranoia ")
+            TypingPrint(Reset)
+            TypingPrint("Increased by 2, now at ")
+            TypingPrint(Magenta)
+            TypingPrint(f"{self.MaxParanoia}\n")
+            TypingPrint(Green)
+            TypingPrint("HP ")
+            TypingPrint(Reset)
+            TypingPrint("Increased by 10, now at ")
+            TypingPrint(Green)
+            TypingPrint(f"{self.MaxHP}\n")
+            TypingPrint(Yellow)
+            TypingPrint("~~10 EXP has been consumed~~")
         
         elif newstat.lower() == "luck" and self.Exp > 10:
             self.Exp -= 10
@@ -53,10 +81,26 @@ class Player():
             self.MaxHP += 10
             self.HP = self.MaxHP
             self.level += 1
-            print(Fore.CYAN + '~~Level Up~~',f"\nLuck Increased by 1, now at {self.luck}\nHP increased by 10, now at {self.MaxHP}\n~~10 EXP has been consumed~~")
-        
+
+            TypingPrint(Cyan)
+            TypingPrint("~~Level Up~~\n")
+            TypingPrint(Yellow)
+            TypingPrint("Luck ")
+            TypingPrint(Reset)
+            TypingPrint("Increased by 1, now at ")
+            TypingPrint(Yellow)
+            TypingPrint(f"{self.luck}\n")
+            TypingPrint(Green)
+            TypingPrint("HP")
+            TypingPrint(Reset)
+            TypingPrint("Increased by 10, now at ")
+            TypingPrint(Green)
+            TypingPrint(f"{self.MaxHP}\n")
+            TypingPrint(Yellow)
+            TypingPrint("~~10 EXP has been consumed~~")
         else:
-            print("insufficient XP, unable to increase level.")
+            TypingPrint(Yellow)
+            TypingPrint("~~Insufficient XP~~\n~~Unable to increase level~~")
 
     def Remove_Item(self,Item):
             self.inventory.remove(Item)
