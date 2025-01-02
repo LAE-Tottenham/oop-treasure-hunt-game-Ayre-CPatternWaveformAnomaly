@@ -1,5 +1,6 @@
 import random
 from colorama import Fore, Back, Style
+from Typing import TypingPrint
 
 class Player():
     def __init__(self):
@@ -17,10 +18,10 @@ class Player():
         self.Exp = 20
 
     
-    def set_name(self,Name):
+    def Set_Name(self,Name):
         self.name = Name
     
-    def additem(self,newitem):
+    def Add_Item(self,newitem):
         self.inventory.append(newitem)
 
     def Assign_Stats(self,newstat): # This system uses the player's accumulated EXP in order to increase a specified stat.
@@ -28,7 +29,7 @@ class Player():
             self.Exp -= 10
             self.AP += 5
             self.MaxHP += 10
-            self. HP = self.MaxHP
+            self.HP = self.MaxHP
             self.level += 1
             print(Fore.CYAN + '~~Level Up~~',f"\nAP Increased by 5, now at {self.AP}\nHP increased by 10, now at {self.MaxHP}\n~~10 EXP has been consumed~~")
         
@@ -36,7 +37,7 @@ class Player():
             self.Exp -= 10
             self.MaxParanoia += 2
             self.MaxHP += 10
-            self. HP = self.MaxHP
+            self.HP = self.MaxHP
             self.level += 1
             print(Fore.CYAN + '~~Level Up~~',f"\nMaximum Paranoia Increased by 2, now at {self.MaxParanoia}\nHP increased by 10, now at {self.MaxHP}\n~~10 EXP has been consumed~~")
         
@@ -44,14 +45,14 @@ class Player():
             self.Exp -= 10
             self.luck += 1
             self.MaxHP += 10
-            self. HP = self.MaxHP
+            self.HP = self.MaxHP
             self.level += 1
             print(Fore.CYAN + '~~Level Up~~',f"\nLuck Increased by 1, now at {self.luck}\nHP increased by 10, now at {self.MaxHP}\n~~10 EXP has been consumed~~")
         
         else:
             print("insufficient XP, unable to increase level.")
 
-    def Remove_item(self,Item):
+    def Remove_Item(self,Item):
             self.inventory.remove(Item)
     
     def add_EXP(self,EXP):
@@ -61,3 +62,39 @@ class Player():
         self.Paranoia += amount
         if self.Paranoia > self.MaxParanoia:
             self.Paranoia = self.MaxParanoia
+    
+    def Add_Spell(self,newspell):
+        self.spells.append(newspell)
+    
+    def Remove_Spell(self,newspell):
+        self.spells.remove(newspell)
+    
+    def Regen_HP(self,amount):
+        self.HP += amount
+        if self.HP > self.MaxHP:
+            self.HP = self.MaxHP
+    
+    def Damage(self,amount):
+        self.HP -= amount
+    
+    def Status(self):
+        print(Fore.CYAN,"")
+        TypingPrint("~~STATUS~~")
+        print(Fore.RESET,"")
+        TypingPrint("Your current HP is:")
+        print(Fore.GREEN,"")
+        TypingPrint(f"{self.HP} HP")
+        print(Fore.RESET,"")
+        TypingPrint("out of")
+        print(Fore.GREEN,"")
+        TypingPrint(f"{self.MaxHP} HP")
+        print(Fore.RESET,"")
+        TypingPrint("Your current Attack Power is:")
+        print(Fore.RED,"")
+        TypingPrint(f"{self.AP} AP")
+        print(Fore.RESET,"")
+        TypingPrint("Your current Luck is:")
+        print(Fore.YELLOW,"")
+        TypingPrint(f"{self.luck} Luck")
+
+
