@@ -1,6 +1,7 @@
 import random
 from colorama import Fore, Back, Style
 from Typing import TypingPrint
+from Typing import Reset,Red,Cyan,Green,Yellow,Magenta
 
 class Player():
     def __init__(self):
@@ -32,6 +33,11 @@ class Player():
             self.HP = self.MaxHP
             self.level += 1
             print(Fore.CYAN + '~~Level Up~~',f"\nAP Increased by 5, now at {self.AP}\nHP increased by 10, now at {self.MaxHP}\n~~10 EXP has been consumed~~")
+            TypingPrint(Cyan)
+            TypingPrint("~~Level Up~~\n")
+            TypingPrint(Red)
+            TypingPrint("AP")
+            TypingPrint(Reset)
         
         elif newstat.lower() == "paranoia" and self.Exp > 10:
             self.Exp -= 10
@@ -78,11 +84,6 @@ class Player():
         self.HP -= amount
     
     def Status(self):
-        Reset = (Fore.RESET,"")
-        Cyan = (Fore.CYAN,Style.BRIGHT,"")
-        Red = (Fore.RED,Style.BRIGHT,"")
-        Green = (Fore.GREEN,Style.BRIGHT,"")
-        Yellow = (Fore.YELLOW,Style.BRIGHT,"")
         TypingPrint(Cyan)
         TypingPrint("~~STATUS~~\n")
         TypingPrint(Reset)
@@ -100,4 +101,12 @@ class Player():
         TypingPrint(Reset)
         TypingPrint("Your current Luck is ")
         TypingPrint(Yellow)
-        TypingPrint(f"{self.luck} Luck")
+        TypingPrint(f"{self.luck} Luck\n")
+        TypingPrint(Reset)
+        TypingPrint("Your current Paranoia is ")
+        TypingPrint(Magenta)
+        TypingPrint(f"{self.Paranoia} ")
+        TypingPrint(Reset)
+        TypingPrint("out of ")
+        TypingPrint(Magenta)
+        TypingPrint(f"{self.MaxParanoia}")
