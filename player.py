@@ -91,7 +91,7 @@ class Player():
             TypingPrint(Yellow)
             TypingPrint(f"{self.luck}\n")
             TypingPrint(Green)
-            TypingPrint("HP")
+            TypingPrint("HP ")
             TypingPrint(Reset)
             TypingPrint("Increased by 10, now at ")
             TypingPrint(Green)
