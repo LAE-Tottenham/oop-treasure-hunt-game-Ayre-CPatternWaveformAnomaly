@@ -29,4 +29,5 @@ class Item():
             self.glowing = False
 
     def inspect(self):
-        print("unfinished")
+        convert(self.directory,75)
+        TypingPrint(self.description)
