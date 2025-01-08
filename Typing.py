@@ -13,3 +13,8 @@ def TypingPrint(text):
     sys.stdout.write(character)
     sys.stdout.flush()
     time.sleep(0.05)
+
+def TypingColor(color,String):
+  TypingPrint(color)
+  TypingPrint(String)
+  TypingPrint(Reset)
