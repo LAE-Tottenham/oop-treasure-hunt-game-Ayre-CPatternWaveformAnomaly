@@ -1,6 +1,6 @@
 import random
 from colorama import Fore, Back, Style
-from Typing import TypingPrint
+from Typing import TypingPrint,TypingColor
 from Typing import Reset,Red,Cyan,Green,Yellow,Magenta
 
 class Player():
@@ -33,22 +33,14 @@ class Player():
             self.HP = self.MaxHP
             self.level += 1
 
-            TypingPrint(Cyan)
-            TypingPrint("~~Level Up~~\n")
-            TypingPrint(Red)
-            TypingPrint("AP ")
-            TypingPrint(Reset)
+            TypingColor(Cyan,"~~Level Up~~\n")
+            TypingColor(Red,"Attack Power ")
             TypingPrint("Increased by 5, now at ")
-            TypingPrint(Red)
-            TypingPrint(f"{self.AP}\n")
-            TypingPrint(Green)
-            TypingPrint("HP ")
-            TypingPrint(Reset)
+            TypingColor(Red,f"{self.AP}\n")
+            TypingColor(Green,"HP ")
             TypingPrint("Increased by 10, now at ")
-            TypingPrint(Green)
-            TypingPrint(f"{self.MaxHP}\n")
-            TypingPrint(Yellow)
-            TypingPrint("~~10 EXP has been consumed~~")
+            TypingColor(Green,f"{self.MaxHP}\n")
+            TypingColor(Yellow,"~~10 EXP has been consumed~~~")
         
         elif newstat.lower() == "paranoia" and self.Exp > 10:
             self.Exp -= 10
@@ -58,22 +50,14 @@ class Player():
             self.HP = self.MaxHP
             self.level += 1
 
-            TypingPrint(Cyan)
-            TypingPrint("~~Level Up~~\n")
-            TypingPrint(Magenta)
-            TypingPrint("Maximum Paranoia ")
-            TypingPrint(Reset)
+            TypingColor(Cyan,"~~Level Up~~\n")
+            TypingColor(Magenta,"Paranoia ")
             TypingPrint("Increased by 2, now at ")
-            TypingPrint(Magenta)
-            TypingPrint(f"{self.MaxParanoia}\n")
-            TypingPrint(Green)
-            TypingPrint("HP ")
-            TypingPrint(Reset)
+            TypingColor(Magenta,f"{self.Paranoia}\n")
+            TypingColor(Green,"HP ")
             TypingPrint("Increased by 10, now at ")
-            TypingPrint(Green)
-            TypingPrint(f"{self.MaxHP}\n")
-            TypingPrint(Yellow)
-            TypingPrint("~~10 EXP has been consumed~~")
+            TypingColor(Green,f"{self.MaxHP}\n")
+            TypingColor(Yellow,"~~10 EXP has been consumed~~~")
         
         elif newstat.lower() == "luck" and self.Exp > 10:
             self.Exp -= 10
@@ -82,25 +66,16 @@ class Player():
             self.HP = self.MaxHP
             self.level += 1
 
-            TypingPrint(Cyan)
-            TypingPrint("~~Level Up~~\n")
-            TypingPrint(Yellow)
-            TypingPrint("Luck ")
-            TypingPrint(Reset)
+            TypingColor(Cyan,"~~Level Up~~\n")
+            TypingColor(Yellow,"Luck ")
             TypingPrint("Increased by 1, now at ")
-            TypingPrint(Yellow)
-            TypingPrint(f"{self.luck}\n")
-            TypingPrint(Green)
-            TypingPrint("HP ")
-            TypingPrint(Reset)
+            TypingColor(Yellow,f"{self.luck}\n")
+            TypingColor(Green,"HP ")
             TypingPrint("Increased by 10, now at ")
-            TypingPrint(Green)
-            TypingPrint(f"{self.MaxHP}\n")
-            TypingPrint(Yellow)
-            TypingPrint("~~10 EXP has been consumed~~")
+            TypingColor(Green,f"{self.MaxHP}\n")
+            TypingColor(Yellow,"~~10 EXP has been consumed~~~")
         else:
-            TypingPrint(Yellow)
-            TypingPrint("~~Insufficient XP~~\n~~Unable to increase level~~")
+            TypingColor(Yellow,"~~Insufficient XP~~\n~~Unable to increase level~~")
 
     def Remove_Item(self,Item):
             self.inventory.remove(Item)
@@ -128,29 +103,17 @@ class Player():
         self.HP -= amount
     
     def Status(self):
-        TypingPrint(Cyan)
-        TypingPrint("~~STATUS~~\n")
-        TypingPrint(Reset)
+        TypingColor(Cyan,"~~Status~~\n")
         TypingPrint("Your current HP is ")
-        TypingPrint(Green)
-        TypingPrint(f"{self.HP} HP ")
-        TypingPrint(Reset)
+        TypingColor(Green,f"{self.HP} HP ")
         TypingPrint("out of ")
-        TypingPrint(Green)
+        TypingColor(Green,f"{self.MaxHP} HP\n")
         TypingPrint(f"{self.MaxHP} HP\n")
-        TypingPrint(Reset)
         TypingPrint("Your current Attack Power is ")
-        TypingPrint(Red)
-        TypingPrint(f"{self.AP} AP\n")
-        TypingPrint(Reset)
+        TypingColor(Red,f"{self.AP} AP\n")
         TypingPrint("Your current Luck is ")
-        TypingPrint(Yellow)
-        TypingPrint(f"{self.luck} Luck\n")
-        TypingPrint(Reset)
+        TypingColor(Yellow,f"{self.luck} Luck\n")
         TypingPrint("Your current Paranoia is ")
-        TypingPrint(Magenta)
-        TypingPrint(f"{self.Paranoia} ")
-        TypingPrint(Reset)
+        TypingColor(Magenta,f"{self.Paranoia} ")
         TypingPrint("out of ")
-        TypingPrint(Magenta)
-        TypingPrint(f"{self.MaxParanoia}")
+        TypingColor(Magenta,f"{self.MaxParanoia}")

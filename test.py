@@ -3,16 +3,8 @@ from time import sleep
 from os import system
 from Typing import TypingPrint,TypingColor,Reset,Red,Green,Magenta,Yellow,Cyan
 from colorama import Fore, Back, Style
+from item import Item
 
-# system("clear")
-# Player = Player()
-# Player.Status()
-# sleep(2)
-# system("clear")
-# Player.Assign_Stats("Luck")
-# sleep(2)
-# system("clear")
-# Player.Status()
+player = Player()
 
-TypingColor(Red,"Hello World")
-TypingPrint(" This is a test")
+player.Assign_Stats("Paranoia")
